@@ -1,11 +1,9 @@
-// const groupBy = (xs, key) =>
-//   xs.reduce((rv, x) => {
-//     (rv[x[key]] = rv[x[key]] || []).push(x)
+/*  eslint no-extend-native: 0 */
 
-//     return rv
-//   }, {})
+Array.prototype.last = function() {
+  return this.slice(-1)[0]
+}
 
-// eslint-disable-next-line no-extend-native
 Array.prototype.groupBy = function(key) {
   if (!this || !this.reduce)
     return this

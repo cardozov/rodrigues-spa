@@ -1,0 +1,33 @@
+$item-bg: lightblue;
+
+@mixin get-gradient($base) {
+  background: linear-gradient(90deg, rgba($base, 1) 0%, rgba($base, .8) 50%, rgba($base, 1) 100%)
+}
+
+.calendar-row {
+  display: flex;
+  justify-content: space-around;
+  align-items: stretch;
+  align-content: stretch;
+  width: 80vw;
+  height: 8vw;
+}
+
+.calendar-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background: $item-bg;
+  @include get-gradient($item-bg);
+  font-size: 2em;
+  text-align: center;
+  border-bottom: solid 1px #aaa;
+  border-right: solid 1px #aaa;
+  border-left: solid 1px #aaa;
+
+  &--disabled {
+    @extend .calendar-item;
+    @include get-gradient(#cbcbcb);
+  }
+}

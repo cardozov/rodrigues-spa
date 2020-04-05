@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import moment from 'moment'
 
 import CalendarHeader from './CalendarHeader/CalendarHeader'
@@ -6,14 +6,18 @@ import CalendarRow from './CalendarRow/CalendarRow';
 import Service from './Calendar.service'
 
 const Calendar = () => {
-  const calendar = Service.getFormattedWeekListByMonth(moment().format('MM'), moment().format('YYYY'))
+  const [state, setState] = useState({
+    month: parseInt(moment().format('MM')) -1,
+    year: moment().format('YYYY')
+  })
+
+  const calendar = Service.getFormattedWeekListByMonth(state.month, state.year)
 
   return (
     <>
-      <CalendarHeader />
-      {
-        calendar.map(row => <CalendarRow row={row} />)
-      }
+      <CalendarHeader month={state.month} year={state.year} change={setState}/>
+      
+      { calendar.map((row, i) => <CalendarRow row={row} first={i===0} />) }
     </>
   )
 }
