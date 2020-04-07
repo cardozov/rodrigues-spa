@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux'
 
 import calendar from './CalendarReducer'
+import events from './EventReducer'
 
 const rootReducer = combineReducers({
-  calendar
+  calendar,
+  events
 })
 
 export default rootReducer

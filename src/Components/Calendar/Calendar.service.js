@@ -1,12 +1,12 @@
 import moment from 'moment'
 
-import '../Util/Array.util'
+import '../../Util/Array.util'
 
-const getFormattedCalendar = (moment, disabled) => ({
-  week: moment.week(),
-  day: moment.format('DD'),
-  obj: moment,
-  weekDay: moment.format('dddd'),
+const getFormattedCalendar = (reference, disabled = false) => ({
+  week: reference.week(),
+  day: reference.format('DD'),
+  obj: reference,
+  weekDay: reference.format('dddd'),
   disabled
 })
 

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Calendar from './Calendar/Calendar'
+import Calendar from './Components/Calendar/Calendar'
 
 const App = () => (
   <div className="App">

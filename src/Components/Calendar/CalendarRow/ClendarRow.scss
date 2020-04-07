@@ -22,12 +22,34 @@ $item-bg: lightblue;
   @include get-gradient($item-bg);
   font-size: 2em;
   text-align: center;
-  border-bottom: solid 1px #aaa;
-  border-right: solid 1px #aaa;
-  border-left: solid 1px #aaa;
-
+  border-bottom: solid 1px #bbb;
+  border-right: solid 1px #ccc;
+  border-left: solid 1px #ccc;
+  
   &--disabled {
     @extend .calendar-item;
     @include get-gradient(#cbcbcb);
   }
+}
+
+.event-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.event-some {
+  width: 60%;
+  height: 10px;
+  border-radius: 40px;
+}
+
+.event-visiting {
+  @extend .event-some;
+  background-color: #006bc2;
+}
+
+.event-booking {
+  @extend .event-some;
+  background-color: #02ad1d;
 }
