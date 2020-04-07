@@ -11,7 +11,7 @@ const Calendar = () => {
     year: moment().format('YYYY')
   })
 
-  const calendar = Service.getFormattedWeekListByMonth(state.month, state.year)
+  const calendar = Service.getFormattedWeekListByMonthAndYear(state.month, state.year)
 
   return (
     <>
