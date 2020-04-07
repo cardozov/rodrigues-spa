@@ -1,34 +1,29 @@
 import React from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import CalendarCombo from './CalendarCombo/CalendarCombo'
+import { ptBrMonthList, yearList, getCurrentMonthAndYear, createAction } from './CalendarHeader.service'
 
-const CalendarHeader = ({month, year, change}) => {
-  const ptBrMonthList = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
-  const yearList = Array(10).fill(0).map((_, idx) => idx + new Date().getFullYear() -1)
+const CalendarHeader = () => {
+  const { month, year } = useSelector(state => state.calendar)
 
-  const getCurrentMonthAndYear = (m, y) => `${ptBrMonthList[m]}/${y}`
+  const dispatch = useDispatch()
 
   const monthCahnged = e => {
-    change({month: ptBrMonthList.indexOf(e.target.value), year})
+    createAction(dispatch)({month: ptBrMonthList.indexOf(e.target.value), year})
   }
 
   const yearCahnged = e => {
-    change({year: e.target.value, month})
+    createAction(dispatch)({year: e.target.value, month})
   }
 
   return (
     <>
       <h1>{getCurrentMonthAndYear(month, year)}</h1>
+
       <div>
-        <select id="month-select" className="calendar-select" onChange={monthCahnged}>
-          {
-            ptBrMonthList.map((m, i) => <option key={i} selected={i===month} value={m}>{m}</option>)
-          }
-        </select>
-        
-        <select id="year-select" className="calendar-select" onChange={yearCahnged}>
-          {
-            yearList.map((y, i) => <option key={i} selected={y === +year} value={y}>{y}</option>)
-          }
-        </select>
+        <CalendarCombo calendarList={ptBrMonthList} onChange={monthCahnged} defaultValue={ptBrMonthList[month]} />
+
+        <CalendarCombo calendarList={yearList} onChange={yearCahnged} defaultValue={year} />
       </div>
     </>
   )

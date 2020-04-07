@@ -8,7 +8,7 @@ const CalendarRowHeader = () => {
   return (
     <div className='calendar-row'>
       {
-        weekdays.map(day => <span className='calendar-header-item'>{day}</span>)
+        weekdays.map(day => <span key={day} className='calendar-header-item'>{day}</span>)
       }
     </div>
   )
