@@ -1,0 +1,13 @@
+.calendar-header{
+  &-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &-combo-wrapper {
+    width: 20vw;
+    display: flex;
+    justify-content: space-evenly;
+  }
+}

@@ -11,11 +11,11 @@ const Calendar = () => {
   const calendar = Service.getFormattedWeekListByMonthAndYear(state.month, state.year)
 
   return (
-    <>
+    <div className="calendar-container">
       <CalendarHeader/>
       
       { calendar.map((row, i) => <CalendarRow key={i} row={row} first={i===0} />) }
-    </>
+    </div>
   )
 }
 

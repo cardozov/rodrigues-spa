@@ -1,7 +1,10 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+
+import './CalendarHeader.scss'
 import CalendarCombo from './CalendarCombo/CalendarCombo'
 import { ptBrMonthList, yearList, getCurrentMonthAndYear, createAction } from './CalendarHeader.service'
+import { Typography } from '@material-ui/core'
 
 const CalendarHeader = () => {
   const { month, year } = useSelector(state => state.calendar)
@@ -17,15 +20,15 @@ const CalendarHeader = () => {
   }
 
   return (
-    <>
-      <h1>{getCurrentMonthAndYear(month, year)}</h1>
+    <div className="calendar-header-container">
+      <Typography variant="h2" >{getCurrentMonthAndYear(month, year)}</Typography>
 
-      <div>
+      <div className="calendar-header-combo-wrapper">
         <CalendarCombo calendarList={ptBrMonthList} onChange={monthCahnged} defaultValue={ptBrMonthList[month]} />
 
         <CalendarCombo calendarList={yearList} onChange={yearCahnged} defaultValue={year} />
       </div>
-    </>
+    </div>
   )
 }
 

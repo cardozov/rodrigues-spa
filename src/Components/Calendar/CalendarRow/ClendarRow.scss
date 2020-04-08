@@ -4,6 +4,12 @@ $item-bg: lightblue;
   background: linear-gradient(90deg, rgba($base, 1) 0%, rgba($base, .8) 50%, rgba($base, 1) 100%)
 }
 
+.calendar-row-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .calendar-row {
   display: flex;
   justify-content: space-around;
@@ -18,13 +24,14 @@ $item-bg: lightblue;
   align-items: center;
   justify-content: center;
   width: 100%;
-  background: $item-bg;
+  // background: $item-bg;
   @include get-gradient($item-bg);
+  // background-color: $item-bg !important;
   font-size: 2em;
   text-align: center;
-  border-bottom: solid 1px #bbb;
-  border-right: solid 1px #ccc;
-  border-left: solid 1px #ccc;
+  // border-bottom: solid 1px #bbb;
+  // border-right: solid 1px #ccc;
+  // border-left: solid 1px #ccc;
   
   &--disabled {
     @extend .calendar-item;

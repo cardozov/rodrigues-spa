@@ -5,7 +5,7 @@ import CalendarRowHeader from './CalendarRowHeader/CalendarRowHeader'
 import CalendarDay from './CalendarDay/CalendarDay'
 
 const CalendarRow = ({row, first}) => (
-  <div>
+  <div className="calendar-row-container">
     { first && <CalendarRowHeader className="calendar-row" /> }
     <div className="calendar-row">
 

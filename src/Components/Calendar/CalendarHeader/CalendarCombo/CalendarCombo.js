@@ -1,11 +1,12 @@
 import React from 'react'
+import { Select, MenuItem } from '@material-ui/core'
 
 const CalendarCombo = ({ calendarList, onChange, defaultValue }) => (
-  <select id="month-select" className="calendar-select" onChange={onChange} defaultValue={defaultValue}>
+  <Select value={defaultValue} onChange={onChange} displayEmpty className="calendar-select">
     {
-      calendarList.map((item, idx) => <option key={idx} value={item}>{item}</option>)
+      calendarList.map((item, idx) => <MenuItem key={idx} value={item}>{item}</MenuItem>)
     }
-  </select>
+  </Select>
 )
 
 export default CalendarCombo

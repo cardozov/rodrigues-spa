@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import moment from 'moment'
+import { Paper } from '@material-ui/core'
 
 const CalendarDay = ({reference}) => {
   const isSameDate = dates => {
@@ -17,10 +18,10 @@ const CalendarDay = ({reference}) => {
   const events = useSelector(state => state.events.filter(({date}) => isSameDate([date, reference.obj])))
 
   return (
-    <div className={`event-container calendar-item${reference.disabled ? '--disabled' : ''}`} key={reference.day}>
+    <Paper elevation={3} className={`event-container calendar-item${reference.disabled ? '--disabled' : ''}`} key={reference.day}>
       <span>{reference.day}</span>
-      {events.map(event => <div className={eventClassesNames[event.type]}></div>)}
-    </div>
+      {events.map((event, i) => <div key={i} className={eventClassesNames[event.type]}></div>)}
+    </Paper>
   )
 }
 
